@@ -1,0 +1,88 @@
+body{
+background: #006666;
+position: center;
+
+}
+h1{
+color: white;
+font-size: 50px;
+}
+
+button{
+width: 150px;
+height: 40px;
+margin-right: -5px;
+
+}
+
+
+.btn-group button:hover {
+background-color: #f44336;/* Red */
+}
+
+input{
+width: 250px;
+height: 35px;
+margin-right: -5px;
+outline: none;
+}
+
+@font-face {
+font-family: 'column';
+src: local('column'),
+url(/fonts/font.ttf);
+}
+
+.inner {
+display: inline-block;
+vertical-align: middle;
+}
+
+.outer {
+text-align: center;
+}
+
+
+label {
+counter-reset: li;
+list-style: none;
+padding: 0;
+text-align: left;
+margin-top: 25px;
+}
+
+ul li{
+position: relative;
+display: flex;
+padding: 15px;
+margin-top: 0;
+background: #D3D4DA;
+color: #444;
+text-decoration: none;
+
+}
+
+ul li:hover {
+background: #999999;
+}
+
+ul li:active{
+background: #777777;
+content: "✓";
+}
+
+ul li::before{
+content: "✓";
+margin-right: 20px;
+}
+
+ul li::after{
+content: "✕";
+}
+
+ul li > div{
+  width: 100%;
+}
+ul li > div:hover {
+  text-decoration: line-through;
+}

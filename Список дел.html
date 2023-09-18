@@ -3,41 +3,41 @@
 <head>
 <title>Список дел</title>
 <link rel="icon" href="C:\Users\lubov\Desktop\Новая папка\favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="stl.css">
 </head>
-<body>
-
+<body class="outer">
+  <span class="inner">
 <h1>Список дел</h1>
 <form>
-  <input type="text" placeholder="Новый элемент списка " />
-  <button type="reset">Создать</button>
-  <button type="submit">Очистить всё</button>
+  <input type="text" placeholder="Новый элемент списка" />
+  <button type="reset" style="background:silver; border:none"> Создать</button>
+  <button type="submit"style="background:#8b0000; border:none">Очистить всё</button>
 </form>
 <br /><br />
 
-<label>
-   1. <input type="checkbox">
-  Встать <input type="date" /> <img src="C:\Users\lubov\Desktop\крестик.png"
-     width="20"
-     height="20"
-     alt="рандомная картинка" />
-</label>
-<br />
-<label>
-2.   <input type="checkbox">
-  Поесть  <input type="date" /> <img src="C:\Users\lubov\Desktop\крестик.png"
-     width="20"
-     height="20"
-     alt="рандомная картинка" />
-</label>
-<br />
-<label>
-  3. <input type="checkbox">
-  Поспать <input type="date" /> <img src="C:\Users\lubov\Desktop\крестик.png"
-     width="20"
-     height="20"
-     alt="рандомная картинка" />
-</label>
-<div class="footer"> <hr size=3px width=500px align="left">
-<div class="container"><span class="sub"> Copyright © </a>
+
+<div class ="catside">
+<ul>
+<label><li><div>Почесать кошку </div></li></label>
+
+<label><li><div>Полить картошку </div> </li></label>
+
+<label><li><div>Сложить в лукошко </div> </li></label>
+
+</ul>
+</div>
+
+
+<div class="center">
+  <p>Не найдено ни одного дела</p>
+</div>
+
+<div class="footer">
+  <hr size="3px" width="500px" align="left">
+  <div class="container">
+    <span class="sub">Copyright ©</span>
+  </div>
+</div>
+</span>
 </body>
 </html>
