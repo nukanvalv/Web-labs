@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Лаба_три</title>
+  </head>
+  <body>
+  <!--Задание один -->
+  <script >
+    let admin, name;
+    name = "Джон";
+    admin = name;
+    alert( admin );
+  </script>
+  <!--Задание два -->
+  <script>
+    let a = +prompt("Первое число?", 1);
+    let b = +prompt("Второе число?", 2);
+    alert(a + b); // 12
+  </script>
+  <!--Задание три -->
+  <script>
+    for (let i = 2; i <= 10; i++) {
+    if (i % 2 == 0) {
+    alert( i );
+  }
+}
+  </script>
+  <!--Задание четыре  -->
+  <script>
+    let i = 0;
+    while (i < 3) {
+    alert( `number ${i}!` );
+    i++;
+}
+  </script>
+<!--Задание пять  -->
+<script>
+  let num;
+
+do {
+  num = prompt("Введите число больше 100?", 0);
+} while (num <= 100 && num);
+</script>
+<!--Задание шесть  -->
+<script>
+  let n = 10;
+
+nextPrime:
+for (let i = 2; i <= n; i++) {
+
+  for (let j = 2; j < i; j++) {
+    if (i % j == 0) continue nextPrime;
+  }
+
+  alert( i ); 
+}
+</script>
+  </body>
+</html>
