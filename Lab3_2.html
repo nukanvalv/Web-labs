@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Лаба_три</title>
+  </head>
+  <body>
+<!--Вернуть число в обратном порядке 123 -> 321-->
+<script>
+  function reverseNumber(number) {
+  return parseInt(number.toString().split('').reverse().join(''));
+  }
+
+  let originalNumber = 123;
+  let reversedNumber = reverseNumber(originalNumber);
+
+</script>
+<!--Вернуть число без повторяющихся цифр 111333456 -> 13456.-->
+<script>
+  function removeDuplicateDigits(number) {
+const numStr = number.toString();
+let result = '';
+
+for (let i = 0; i < numStr.length; i++) {
+if (result.indexOf(numStr[i]) === -1) {
+result += numStr[i];
+}
+}
+
+return parseInt(result);
+}
+
+let originalNumber = 111333456;
+let numberWithoutDuplicates = removeDuplicateDigits(originalNumber);
+console.log(numberWithoutDuplicates);
+</script>
+<!--Посчитать, сколько раз в данном числе встречается данная цифра (1355567, 5) -> 3.-->
+<script>
+  function countDigitOccurrences(number, digit) {
+const numStr = number.toString();
+const digitStr = digit.toString();
+let count = 0;
+
+for (let i = 0; i < numStr.length; i++) {
+if (numStr[i] === digitStr) {
+count++;
+}
+}
+
+return count;
+}
+
+let number = 1355567;
+let digitToCount = 5;
+let count = countDigitOccurrences(number, digitToCount);
+
+console.log(`Цифра ${digitToCount} встречается ${count} раз.`);
+</script>
+<!--Найти самый первый неповторяющийся символ в строке: 'фывфавыапрс' -> 'п'.-->
+<script>
+  function findFirstUnique(str) {
+  for (let i = 0; i < str.length; i++) {
+  if (str.indexOf(str[i]) === str.lastIndexOf(str[i])) {
+  return str[i];
+  }
+  }
+  return null;
+  }
+
+  const inputStr = 'фывфавыапрс';
+  const firstUniqueChar = findFirstUnique(inputStr);
+  console.log(firstUniqueChar);
+</script>
+<!--Cгенерировать строку заданной длины из случайных символов, взятых из набора английскийх букв и цифр: (5) -> '2fvg6-->
+<script>
+  function generateRandomString(length) {
+  const characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  let result = '';
+  for (let i = 0; i < length; i++) {
+  const randomIndex = Math.floor(Math.random() * characters.length);
+  result += characters.charAt(randomIndex);
+  }
+  return result;
+  }
+
+  const generatedString = generateRandomString(5);
+  console.log(generatedString);
+</script>
+<!--Вернуть только уникальные символы строки: 'позволяеткопироватьтекстиз' -> 'позвляеткираьс'.-->
+<script>
+  function getUniqueCharacters(str) {
+let uniqueStr = '';
+for (let char of str) {
+if (uniqueStr.indexOf(char) === -1) {
+uniqueStr += char;
+}
+}
+return uniqueStr;
+}
+
+const inputStr = 'позволяеткопироватьтекстиз';
+const uniqueChars = getUniqueCharacters(inputStr);
+console.log(uniqueChars); 
+</script>
+
+</body>
+</html>
