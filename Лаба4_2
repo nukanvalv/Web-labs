@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Лаба четыре</title>
+  </head>
+  <body>
+      <!--Задача 1  -->
+<script>
+function* randomGenerator(n, m) {
+while (true) {
+yield Math.floor(Math.random() * (m - n + 1) + n);
+}
+}
+const generator = randomGenerator(8, 23);
+
+for (let i = 0; i < 5; i++) {
+console.log(generator.next().value);
+}
+</script>
+  <!-----------------------------------------------------------------------  -->
+<script>
+function* padovanGenerator() {
+let a = 1;
+let b = 1;
+let c = 1;
+yield a;
+
+while (true) {
+const next = a + b;
+yield next;
+a = b;
+b = c;
+c = next;
+}
+}
+
+</script>
+<!-----------------------------------------------------------------------  -->
+<script>
+function isPrime(n)
+{
+if (n < 2) {
+return false;
+} else if (n === 2) {
+return true;
+}
+
+let i = 2;
+const limit = Math.sqrt(n);
+while (i <= limit) {
+if (n % i === 0) {
+return false;
+}
+i +=1;
+}
+
+
+return true;
+}
+function* GetNextSimpleNumber(n)
+{
+while(true)
+{
+if(n < 2) n=2;
+else
+{
+if((n&1)===0) ++n;
+for (; !isPrime(n); n += 2);
+}
+yield BigInt(n++);
+}
+}
+let n = 0n;
+let simpleNumGenerator = GetNextSimpleNumber(n);
+let iter = 0;
+while(iter < 100)
+{
+n = simpleNumGenerator.next().value;
+console.log(n);
+iter++;
+}
+</script>
+
+
+  <!--Задача 3  -->
+
+  <script>
+  function CountCharsInString(inputString)
+{
+if(isNaN(inputString)) return "NaN string" ;
+var myMap = new Map();
+for(let i of inputString)
+myMap.has(i) ? myMap.set(i, myMap.get(i)+1) : myMap.set(i, 1);
+return myMap;
+}
+console.log(CountCharsInString(NaN))
+  </script>
+    
+
+  </body>
+</html>

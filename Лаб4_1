@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Лаба четыре</title>
+  </head>
+  <body>
+    <!--Задача 1  -->
+<script>
+function Difference(arr) {
+if (arr.length < 2) {
+return undefined;
+}
+
+let minElement = arr[0];
+let maxDifference = arr[1] - arr[0];
+
+for (let i = 1; i < arr.length; i++) {
+if (arr[i] - minElement > maxDifference) {
+maxDifference = arr[i] - minElement;
+}
+if (arr[i] < minElement) {
+minElement = arr[i];
+}
+}
+
+return maxDifference;
+}
+
+const myArray = [6, 8, 10, 2, 4, 13, 11];
+const maxDifference = Difference(myArray);
+console.log("Максимальная разница: " + maxDifference);
+
+</script>
+  <!-----------------------------------------------------------------------  -->
+<script>
+function Povtor(arr) {
+return arr.filter((value, index, self) => {
+return self.indexOf(value) === index;
+});
+}
+const myArray = [2, 2, 2, 3, 4, 4, 5];
+const uniqueArray = Povtor(myArray);
+console.log(uniqueArray);
+</script>
+<!-----------------------------------------------------------------------  -->
+<script>
+const objectsArray = [
+{ id: 1, isDone: true },
+{ id: 2, isDone: false },
+{ id: 3, isDone: true }
+];
+const filteredArray = objectsArray.filter(obj => obj.isDone === true);
+console.log(filteredArray);
+
+</script>
+
+<!--Задача 2  -->
+<script>
+function bigEkement(arr, number) {
+return arr.filter(element => element > number);
+}
+
+const myArray = [1, 4, 6, 3, 2];
+const threshold = 2;
+const result = bigEkement(myArray, threshold);
+console.log(result);
+</script>
+<!-----------------------------------------------------------------------  -->
+<script>
+function flattenArray(arr) {
+let flatArray = [];
+
+arr.forEach(element => {
+if (Array.isArray(element)) {
+flatArray = flatArray.concat(flattenArray(element));
+} else {
+flatArray.push(element);
+}
+});
+
+return flatArray;
+}
+
+const nestedArray = [1, 4, [34, 1, 20], [6, [6, 12, 8], 6]];
+const flatResult = flattenArray(nestedArray);
+console.log(flatResult);
+</script>
+<!--Задача 3  -->
+<script>
+function findZeroSumPairs(arr) {
+let count = 0;
+
+for (let i = 0; i < arr.length; i++) {
+for (let j = i + 1; j < arr.length; j++) {
+if (arr[i] + arr[j] === 0) {
+count++;
+}
+}
+}
+
+return count;
+}
+
+const array1 = [-7, 12, 4, 6, -4, -12, 0];
+const array2 = [-1, 2, 4, 7, -4, 1, -2];
+const array3 = [-1, 1, 0, 1];
+const array4 = [-1, 1, -1, 1];
+const array5 = [1, 1, 1, 0, -1];
+const array6 = [0, 0];
+const array7 = [];
+
+console.log(findZeroSumPairs(array1));
+console.log(findZeroSumPairs(array2));
+console.log(findZeroSumPairs(array3));
+console.log(findZeroSumPairs(array4));
+console.log(findZeroSumPairs(array5));
+console.log(findZeroSumPairs(array6));
+console.log(findZeroSumPairs(array7));
+//для троек
+//for (let i = 0; i < arr.length; i++) {
+//for (let j = i + 1; j < arr.length; j++) {
+//for (let k = j + 1; k < arr.length; k++) {
+//if (arr[i] + arr[j] + arr[k] === 0) {
+//count++;
+//}
+//}
+//}
+</script>
+  </body>
+</html>
