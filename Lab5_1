@@ -1,0 +1,156 @@
+<<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Лаба пять</title>
+  </head>
+  <body>
+    <!--Задача 1  -->
+
+    <script>
+    function counter(n) {
+let currentCount = n;
+
+function printCount() {
+console.log(currentCount);
+currentCount--;
+
+if (currentCount >= 0) {
+setTimeout(printCount, 1000);
+}
+}
+printCount();
+}
+    </script>
+
+      <!-----------------------------------------------------------------------  -->
+      <script>
+      function createCounter(n) {
+let currentCount = n;
+let intervalId = null;
+
+return {
+start() {
+if (intervalId === null) {
+console.log(currentCount);
+intervalId = setInterval(() => {
+currentCount--;
+if (currentCount >= 0) {
+console.log(currentCount);
+} else {
+this.stop();
+}
+}, 1000);
+}
+},
+pause() {
+clearInterval(intervalId);
+intervalId = null;
+},
+stop() {
+clearInterval(intervalId);
+intervalId = null;
+currentCount = n;
+},
+};
+}
+
+const myCounter = createCounter(5);
+myCounter.start();
+myCounter.pause();
+myCounter.start();
+myCounter.stop();
+      </script>
+<!--Задача 2  -->
+      <script>
+      async function getFirstRepository(username) {
+try {
+const userResponse = await fetch(`https://api.github.com/users/${username}`);
+const userData = await userResponse.json();
+
+if (userData.public_repos > 0) {
+const reposResponse = await fetch(userData.repos_url);
+const reposData = await reposResponse.json();
+
+if (reposData.length > 0) {
+const firstRepoName = reposData[0].name;
+return firstRepoName;
+} else {
+return "Пользователь не имеет репозиториев.";
+}
+} else {
+return "Пользователь не имеет публичных репозиториев.";
+}
+} catch (error) {
+console.error("Произошла ошибка:", error);
+return "Произошла ошибка при получении данных.";
+}
+}
+
+const username = "nukanvalv";
+getFirstRepository(username)
+.then((repoName) => console.log(`Первый репозиторий пользователя ${username}: ${repoName}`))
+.catch((error) => console.error(error));
+
+      </script>
+      <!-----------------------------------------------------------------------  -->
+      <script>
+      function countdown(n) {
+function recursiveCountdown(i) {
+console.log(i);
+if (i > 0) {
+setTimeout(() => recursiveCountdown(i - 1), 1000);
+}
+}
+recursiveCountdown(n);
+}
+
+countdown(5);
+
+      </script>
+      <!--Задача 3  -->
+      <script>
+      class HttpError extends Error {
+constructor(response) {
+super(`${response.status} for ${response.url}`);
+this.name = 'HttpError';
+this.response = response;
+}
+}
+
+async function loadJson(url) {
+const response = await fetch(url);
+
+if (response.status === 200) {
+return response.json();
+} else {
+throw new HttpError(response);
+}
+}
+
+async function getGithubUser() {
+let name;
+let user;
+
+while (true) {
+name = prompt("Введите логин?", "iliakan");
+
+try {
+user = await loadJson(`https://api.github.com/users/${name}`);
+alert(`Полное имя: ${user.name}.`);
+return user;
+} catch (err) {
+if (err instanceof HttpError && err.response.status === 404) {
+alert("Такого пользователя не существует, пожалуйста, повторите ввод.");
+} else {
+throw err;
+}
+}
+}
+}
+
+getGithubUser();
+
+      </script>
+  </body>
+</html>

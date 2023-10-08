@@ -1,0 +1,74 @@
+<<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Лаба пять</title>
+  </head>
+  <body>
+      <!--Задача 1  -->
+    <script>
+const arr = [1, 6, -1, 22, 13];
+const max = Math.max(...arr);
+const min = Math.min(...arr);
+
+console.log(`Максимум: ${max}`);
+console.log(`Минимум: ${min}`);
+    </script>
+
+      <!--Задача 2  -->
+    <script>
+function reverseString(str) {
+return str.split('').reverse().join('');
+}
+
+const str = "!тевирП";
+const reversedStr = reverseString(str);
+console.log(reversedStr);
+    </script>
+      <!--Задача 3  -->
+    <script>
+    const arr = [3, 5, 8, 13, 21, 42];
+const sumOfSquares = arr.reduce((accumulator, currentValue) => {
+if (currentValue % 2 === 0) {
+const squareRoot = Math.sqrt(currentValue);
+return accumulator + squareRoot;
+}
+return accumulator;
+}, 0);
+
+console.log(`Сумма квадратных корней чётных чисел: ${sumOfSquares}`);
+    </script>
+
+      <!--Задача 4  -->
+    <script>
+    function isAnagram(str1, str2) {
+const cleanStr1 = str1.replace(/[^\w]/g, '').toLowerCase();
+const cleanStr2 = str2.replace(/[^\w]/g, '').toLowerCase();
+
+const sortedStr1 = cleanStr1.split('').sort().join('');
+const sortedStr2 = cleanStr2.split('').sort().join('');
+
+return sortedStr1 === sortedStr2;
+}
+
+console.log(isAnagram("Лунь", "нуль"));
+console.log(isAnagram("Лунь", "ноль"));
+    </script>
+
+      <!--Задача 5  -->
+    <script>
+    function isPalindrome(str) {
+const cleanStr = str.replace(/[^\w]/g, '').toLowerCase();
+const reversedStr = cleanStr.split('').reverse().join('');
+
+return cleanStr === reversedStr;
+}
+
+console.log(isPalindrome("Не гни папин ген"));
+console.log(isPalindrome("123"));
+
+    </script>
+
+    
+  </body>
+</html>
