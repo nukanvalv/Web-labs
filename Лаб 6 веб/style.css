@@ -1,0 +1,187 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/Inter-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+:focus, :active {
+  outline: none;
+}
+
+a:focus, a:active {
+  outline: none;
+}
+
+nav, footer, header, aside {
+  display: block;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input, button, textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a, a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+/*--------------------*/
+.custom-checkbox > input[type=checkbox] {
+  position: absolute;
+  z-index: -1;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.custom-checkbox {
+  width: 100%;
+}
+
+.custom-checkbox > span {
+  display: inline-flex;
+  align-items: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+.checkbox-span {
+  color: transparent;
+  background-color: transparent;
+}
+
+.custom-checkbox > input:checked + .checkbox-span {
+  content: "✓";
+  color: black;
+  -webkit-text-decoration: transparent;
+          text-decoration: transparent;
+}
+
+.custom-checkbox > input:checked ~ span {
+  text-decoration: line-through;
+}
+
+.custom-checkbox > input:checked {
+  background-color: blue;
+}
+
+.main {
+  margin: 0 auto;
+  width: 80%;
+  font-family: "Inter";
+}
+
+.main > * > * {
+  font-size: 40px;
+}
+
+h1 > p {
+  text-align: center;
+  color: white;
+}
+
+.input-form {
+  padding: 5vh 10vw;
+  background-color: rgb(47, 79, 79);
+}
+
+.input-text::-moz-placeholder {
+  color: rgb(119, 118, 118);
+}
+
+.input-text::placeholder {
+  color: rgb(119, 118, 118);
+}
+
+.save-btn {
+  display: flex;
+  padding: 0 5px 0 5px;
+  color: rgb(89, 86, 92);
+  background-color: rgb(217, 217, 217);
+  /* float: left; */
+  width: 40%;
+}
+
+.input-text {
+  width: 60%;
+  float:left;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(249, 249, 249);
+}
+
+li:hover {
+  background-color: rgb(238, 238, 238);
+}
+
+.delete-btn, .edit-btn{
+  background-color: transparent;
+  padding: 2px;
+  font-size: 40px;
+}

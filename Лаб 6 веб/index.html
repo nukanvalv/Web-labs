@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Список дел</title>
+</head>
+<body>
+    <div class="main">
+        <div class="input-form">
+            <h1><p>Список дел</p></h1>
+            <input type="text" class="input-text" id="taskInput" placeholder="Введите новое дело..." onkeypress="handleKeyPress(event)">
+            <button class="save-btn" onclick="addTask()">Сохранить</button>
+        </div>
+
+        <ul id="taskList">
+        </ul>
+    </div>
+
+    <script>
+        let tasks = [];
+        let editingTaskIndex = -1;
+
+        function addTask() {
+            let taskInput = document.getElementById("taskInput");
+            let task = taskInput.value;
+            if (task.trim() !== "") {
+                if (editingTaskIndex !== -1) {
+                    tasks[editingTaskIndex] = task;
+                    editingTaskIndex = -1;
+                } else {
+                    tasks.push(task);
+                }
+                taskInput.value = "";
+                displayTasks();
+            }
+        }
+
+        function deleteTask(index) {
+            tasks.splice(index, 1);
+            displayTasks();
+        }
+
+        function editTask(index) {
+            editingTaskIndex = index;
+            let taskInput = document.getElementById("taskInput");
+            taskInput.value = tasks[index];
+            displayTasks();
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === "Enter") {
+                addTask();
+            }
+        }
+
+        function displayTasks() {
+            let taskList = document.getElementById("taskList");
+            taskList.innerHTML = "";
+
+            tasks.forEach(function(task, index) {
+                let li = document.createElement("li");
+                li.innerHTML = `
+                    <label class="custom-checkbox">
+                        <input type="checkbox" class="checkbox">
+                        <span class="checkbox-span">&check;</span><span>${index === editingTaskIndex ? '<input type="text" id="editedTaskInput" value="' + task + '">' : task}</span>
+                    </label>
+                    <button class="edit-btn" onclick="editTask(${index})">&#9998;</button>
+                    <button class="delete-btn" onclick="deleteTask(${index})">&cross;</button>
+                `;
+                taskList.appendChild(li);
+            });
+        }
+
+        displayTasks();
+    </script>
+</body>
+</html>
