@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  	<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+  	<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+  function App() {
+    const [seconds, setSeconds] = React.useState(10);
+
+    React.useEffect(() => {
+      if (seconds > 0) {
+        setTimeout(() => setSeconds(seconds - 1), 1000);
+      } else {
+        setSeconds('СТОП');
+      }
+    });
+
+    return (
+      <div className="App">
+        <div>
+          {seconds}
+        </div>
+      </div>
+    );
+  }
+  ReactDOM.render(<App />, document.getElementById('root'))
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<title>Page Title</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  	<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+  	<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+  function ControlledTimer() {
+    const [time, setTime] = React.useState(0);
+    const increment = React.useRef(1);
+    React.useEffect(() => {
+        setInterval(() => {
+            setTime(value => value + increment.current);
+        }, 1000);
+    }, []);
+    return (<div className="ControlledTimer">
+        {time}
+    </div>);
+  }
+    function StartTimer()
+    {
+      ReactDOM.render(<ControlledTimer />, document.getElementById('root'))
+    }
+
+</script>
+<button type="button" name="button" onClick=StartTimer()></button>
+</body>
+</html>
